@@ -4,7 +4,12 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                echo 'Hello World'
+                git branch: 'main', credentialsId: 'sjpillai', url: 'https://github.com/sjpillai/Jenkinsrepo1.git'
+            }
+        }
+        stage('terra') {
+            steps {
+                bat 'terraform init'
             }
         }
     }
